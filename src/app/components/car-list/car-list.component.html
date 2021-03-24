@@ -1,0 +1,31 @@
+<h5>ARABALAR</h5>
+<table class="table table-bordered table-condensed table-hover">
+  <thead class="thead-dark">
+    <br />
+    <tr>
+      <th scope="col">Marka Adı</th>
+      <th scope="col">Renk Adı</th>
+      <th scope="col">Model Yılı</th>
+      <th scope="col">Açıklama</th>
+      <th scope="col">Günlük Ücret</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+
+  <tbody>
+    <tr *ngFor="let car of cars">
+      <td>{{ car.brandId }}</td>
+      <td>{{ car.colorId  }}</td>
+      <td>{{ car.modelYears }}</td>
+      <td>{{ car.descriptions }}</td>
+      <td>{{ car.dailyPrice }}</td>
+      <td><button routerLink="/cars/update/{{car.id}}"
+      class="btn btn-primary" style=" color: rgb(11, 6, 83)">GÜNCELLE</button></td>
+      <td><button (click)="deleteCars(car)" class="btn btn-danger" style="color: darkred;">SİL</button></td>
+    </tr>
+  </tbody>
+
+  <button class="btn-info" routerLink="/cars/add" style="color: darkturquoise;" style="right:30px ;">ARABA EKLE </button>
+</table>

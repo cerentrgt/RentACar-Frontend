@@ -1,0 +1,28 @@
+<h5>MARKALAR</h5>
+<table class="table table-bordered table-condensed table-hover">
+  <thead class="thead-dark">
+    <br />
+    <tr>
+      <th scope="col">Marka Id'si</th>
+      <th scope="col">Marka Adı</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+
+  <tbody>
+    <tr *ngFor="let brand of brands">
+      <td>{{ brand.brandId }}</td>
+      <td>{{ brand.brandName | uppercase }}</td>
+      <td><button routerLink="/brands/update/{{brand.brandId}}"
+      class="btn btn-primary" style=" color: rgb(11, 6, 83)">GÜNCELLE</button></td>
+      <td><button (click)="deleteBrands(brand)" class="btn btn-danger" style="color: darkred;">SİL</button></td>
+    </tr>
+  </tbody>
+
+  <button class="btn-info" routerLink="/brands/add" style="color: darkturquoise;" style="right: auto;">MARKA EKLE </button>
+</table>
+
+
+

@@ -1,0 +1,33 @@
+<h5>ARAÇLAR</h5>
+<app-car-filter></app-car-filter>
+<table class="table table-bordered table-condensed table-hover">
+  <thead class="thead-dark">
+    <br />
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Marka Adı</th>
+      <th scope="col">Renk Adı</th>
+      <th scope="col">Model Yılı</th>
+      <th scope="col">Günlük Ücret</th>
+      <th scope="col">Araba Hakkında</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+
+  <tbody>
+    <tr *ngFor="let car of carDetails" routerLink="/carDetail/{{ car.id }}">
+      <td>{{ car.id }}</td>
+      <td>{{ car.brandName | uppercase }}</td>
+      <td>{{ car.colorName }}</td>
+      <td>{{ car.modelYears }}</td>
+      <td>{{ car.dailyPrice }} TL</td>
+      <td>{{ car.descriptions }}</td>
+    </tr>
+
+    
+    <tr *ngIf="!carDetails.length">
+      <td colspan="6">KAYITLI ARAÇ YOK</td>
+    </tr>
+  </tbody>
+</table>

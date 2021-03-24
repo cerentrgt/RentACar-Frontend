@@ -1,0 +1,18 @@
+<div class="mb-3">
+  <label for="filterText" class="form-label">Marka Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control"
+  placeholder="marka">
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+  {{filterText}} aradınız.
+</div>
+<ul class="list-group">
+  <li class="list-group-item p-3 mb-2 bg-danger text-white">Markalar</li>
+    <li routerLink="cars/brand/{{brand.brandId}}" (click)="setCurrentBrand(brand)"
+     *ngFor="let brand of brands | filterBrand:filterText"
+      [class]="getCurrentBrandClass(brand)">{{brand.brandName}} 
+    </li>
+  </ul>
+  
+
+  

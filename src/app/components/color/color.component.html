@@ -1,0 +1,13 @@
+<div class="mb-3">
+  <label for="filterText" class="form-label">Renk Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control"
+  placeholder="renk">
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+  {{filterText}} aradınız.
+  </div>
+
+<ul  class="list-group">
+    <li class="list-group-item p-3 mb-2 bg-danger text-white">Renkler</li>
+    <li routerLink="cars/color/{{color.colorId}}" (click)="removeCurrentColor()" (click)="setCurrentColor(color)" *ngFor="let color of colors | filterColor:filterText" [class]="setCurrentColorClass(color)">{{color.colorName}}</li>
+  </ul>

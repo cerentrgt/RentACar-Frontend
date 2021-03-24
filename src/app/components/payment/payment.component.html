@@ -1,0 +1,98 @@
+  
+<div class="card mt-4">
+    <div class="card-header text-center">
+      <strong>İşlem Özeti</strong>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Başlangıç</th>
+            <th>Bitiş</th>
+            <th>Marka</th>
+            <th>Renk</th>
+            <th>Model Yılı</th>
+            
+            <th>Günlük</th>
+            <th>Toplam</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of carDetails">
+            <td>{{car.rentDate}}</td>
+            <td>{{car.returnDate}}</td>
+            <td>{{car.brandName}}</td>
+            <td>{{car.colorName}}</td>
+            <td>{{car.modelYears}}</td>
+            <td>{{car.dailyPrice | currency:"₺"}}</td>
+            <td><strong class="text-danger">{{amountOfPayment | currency:"₺"}}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+  
+  
+  <div class="card mt-4">
+    <div class="card-header text-center">
+      <strong>Ödeme İşlemleri</strong>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="inputbox mt-3">
+          <span style="color: black;">Kart Sahibinin Adı Soyadı:</span>
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            required="required"
+          />
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="inputbox mt-3 mr-2">
+              <span>Kart numarası:</span>
+              <input
+                type="text"
+                max="16"
+                name="name"
+                class="form-control"
+                required="required"
+              />
+              <i class="fa fa-credit-card"></i>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex flex-row">
+              <div class="inputbox mt-3 mr-2">
+                <span>Son Kullanım Tarihi :</span>
+                <input
+                  type="number"
+                  name="name"
+                  class="form-control"
+                  required="required"
+                />
+              </div>
+              
+              <div class="inputbox mt-3 mr-2">
+                <span>Güvenlik kodu :</span>
+                <input
+                  type="password"
+                  name="name"
+                  class="form-control"
+                  required="required"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="card-footer">
+      <div class="row">
+          <button (click)="pay()" class="btn btn-success"><strong>{{amountOfPayment |currency:"₺"}} </strong>Ödeme Yap</button>
+      </div>
+  </div>
+  </div>

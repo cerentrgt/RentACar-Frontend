@@ -1,0 +1,79 @@
+<div class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header"><h3 class="title" style="color: rgb(189, 10, 10);" >ARABA EKLE</h3></div>
+        <div class="card-body">
+          <form [formGroup]="carAddForm">
+            <div class="mb-3">
+              <label for="brandId" style="color: cyan;">Marka Id'si</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  min="5"
+                  id="brandId"
+                  formControlName="brandId"
+                  class="form-control"
+                  placeholder="Marka Id"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="colorId" style="color: cyan;">Renk Id'si</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  min="1"
+                  id="colorId"
+                  formControlName="colorId"
+                  class="form-control"
+                  placeholder="Renk Id"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="descriptions" style="color: cyan;">Açıklama</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  
+                  id="descriptions"
+                  formControlName="descriptions"
+                  class="form-control"
+                  placeholder="Araba Hakkında"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="modelYears" style="color: cyan;" >Model Yılı</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  min="1990"
+                  id="modelYears"
+                  formControlName="modelYears"
+                  class="form-control"
+                  placeholder="Model Yılı"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="dailyPrice" style="color: cyan;">Günlük Ücret</label>
+                <div class="form-group">
+                  <input
+                    type="number"
+                    min="200"
+                    id="dailyPrice"
+                    formControlName="dailyPrice"
+                    class="form-control"
+                    placeholder="Günlük Ücret"
+                  />
+                </div>
+              </div>
+          </form>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-fill btn-primary"  style="color: rgb(11, 6, 83);" (click)="add()">EKLE</button>
+      </div>
+      </div>
+    </div>
+  </div>

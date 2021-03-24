@@ -14,7 +14,7 @@ import { PaymentService } from 'src/app/services/payment.service';
 })
 export class PaymentComponent implements OnInit {
 
-  constructor( private activatedRoute:ActivatedRoute,private carDetailService:CarDetailService,
+  constructor( private activatedRoute:ActivatedRoute,
     private router:Router,private toastr: ToastrService, private paymentService:PaymentService,
    
     ) { }
@@ -24,9 +24,9 @@ export class PaymentComponent implements OnInit {
   amountOfPayment:number = 0;
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
-      if(params["rental"&& "carDetail"]){
+      if(params["rental"&& "car"]){
         this.rental = JSON.parse(params['rental']);
-        this.car=JSON.parse(params['carDetail'])
+        this.car=JSON.parse(params['car'])
         this.getRental();
         
       }
@@ -39,27 +39,12 @@ export class PaymentComponent implements OnInit {
     console.log(this.car)
     console.log(this.rental);
   }
-  paymentCalculator(){
-  
-    if(this.rental.returnDate != null ){
-      var date1 = new Date(this.rental.returnDate.toString());
-      var date2 = new Date(this.rental.rentDate.toString());
-      var difference = date1.getTime() - date2.getTime();
-    
-    
-    var numberOfDays = Math.ceil(difference / (1000 * 3600 * 24)); 
-    
-    this.amountOfPayment = numberOfDays * this.car.dailyPrice;
-    if(this.amountOfPayment <= 0){
-      this.router.navigate(['/cars']);
-      this.toastr.error("Araç listesine yönlendiriliyorsunuz", "Hatalı işlem");
-    }
-    }
-  }
+
   pay(){
     this.paymentService.pay(this.rental,this.amountOfPayment).subscribe(response => {
       this.router.navigate(['/carDetails']);
       this.toastr.success(response.message.toString(), "İşlem Başarılı");
     })
   }
+
 }

@@ -1,98 +1,57 @@
-  
-<div class="card mt-4">
-    <div class="card-header text-center">
-      <strong>İşlem Özeti</strong>
-    </div>
-    <div class="card-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Başlangıç</th>
-            <th>Bitiş</th>
-            <th>Marka</th>
-            <th>Renk</th>
-            <th>Model Yılı</th>
-            
-            <th>Günlük</th>
-            <th>Toplam</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let car of carDetails">
-            <td>{{car.rentDate}}</td>
-            <td>{{car.returnDate}}</td>
-            <td>{{car.brandName}}</td>
-            <td>{{car.colorName}}</td>
-            <td>{{car.modelYears}}</td>
-            <td>{{car.dailyPrice | currency:"₺"}}</td>
-            <td><strong class="text-danger">{{amountOfPayment | currency:"₺"}}</strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-  </div>
-  
-  
-  <div class="card mt-4">
-    <div class="card-header text-center">
-      <strong>Ödeme İşlemleri</strong>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="inputbox mt-3">
-          <span style="color: black;">Kart Sahibinin Adı Soyadı:</span>
-          <input
-            type="text"
-            name="name"
-            class="form-control"
-            required="required"
-          />
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="inputbox mt-3 mr-2">
-              <span>Kart numarası:</span>
-              <input
-                type="text"
-                max="16"
-                name="name"
-                class="form-control"
-                required="required"
-              />
-              <i class="fa fa-credit-card"></i>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="d-flex flex-row">
-              <div class="inputbox mt-3 mr-2">
-                <span>Son Kullanım Tarihi :</span>
-                <input
-                  type="number"
-                  name="name"
-                  class="form-control"
-                  required="required"
-                />
+
+<div class="padding">
+  <div class="row">
+    <div class="container d-flex justify-content-center">
+      <div class="col-md-6 col-sm-8">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-6">
+                <span>Banka Kartı Ödeme İşlemi</span>   
               </div>
-              
-              <div class="inputbox mt-3 mr-2">
-                <span>Güvenlik kodu :</span>
-                <input
-                  type="password"
-                  name="name"
-                  class="form-control"
-                  required="required"
-                />
+              <div class="col-md-6 text-right" style="margin-top: -5px;">   
+                <img src="https://img.icons8.com/color/36/000000/visa.png">
+                <img src="https://img.icons8.com/color/36/000000/mastercard.png">
+                <img src="https://img.icons8.com/color/36/000000/amex.png">
               </div>
             </div>
+
           </div>
+          <div class="card-body" style="height: 350px;">
+            <div class="form-group">
+              <label for="cc-number" class="control-label">Kart Numarası:</label><br>
+              <input type="tel" id="cc-number" class="input-lg form control cc-number" autocomplete="cc-number" placeholder="**** **** **** **** **** "  name="">
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="cc-exp" class="control-label">Kartın Son Kullanma Tarihi:</label>
+                  <input type="tel" id="cc-exp" class="input-lg form control cc-exp" autocomplete="cc-exp" placeholder="**/**" name="">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="cc-cvc" class="control-label">CVC:</label>
+                  <input type="tel" id="cc-cvc" class="input-lg form control cc-cvc" autocomplete="off" placeholder="****" name=""><br>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="numeric" class="control-label"> Kart Üstündeki İsim ve Soyisim:</label>
+                <input type="text" class="input-lg form-control"><br>
+              </div>
+              <!-- <div class="form-group">
+                <label for="numeric" class="control-label" (click)="payCalculator()"> Kaç Gün İçin Kiralıyorsunuz:</label>
+                <input type="number" class="input-lg form-control"><br>
+              </div> -->
+              <div class="form-group">
+                <button (click)="pay()" class="btn btn-success"><strong>{{amountOfPayment |currency:"₺"}} </strong>Ödeme Yap</button>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
-      
     </div>
-    <div class="card-footer">
-      <div class="row">
-          <button (click)="pay()" class="btn btn-success"><strong>{{amountOfPayment |currency:"₺"}} </strong>Ödeme Yap</button>
-      </div>
   </div>
-  </div>
+</div>

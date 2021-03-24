@@ -2,16 +2,15 @@
 
   <div class="col-md-8">
 
-
-    <div id="carouselExampleDark" class="carousel carousel-fade slide carousel-dark" data-bs-ride="carousel">
+    <div *ngIf="carImages.length > 0; else noImageBlock" id="carouselExampleDark" class="carousel carousel-fade slide carousel-dark" data-bs-ride="carousel">
 
       <ol class="carousel-indicators">
         <li data-bs-target="#carouselExampleDark" *ngFor="let li of carImages; let i = index" [attr.data-bs-slide-to]="i" [class]="i == 0 ? 'active' : ''"></li>
       </ol>
 
       <div class="carousel-inner">
-        <div *ngFor="let car of carImages" [class]="getCurrentImageClass(car)" data-bs-interval="3000" >
-          <img src="https://localhost:44308/uploads/{{ car.imagePath }}" class="d-block w-100" alt="{{ car.imagePath }}" />
+        <div *ngFor="let carImage of carImages;" [class]="getCurrentImageClass(carImage)" data-bs-interval="3000" >
+          <img src="https://localhost:44308/uploads/{{ (carImages && carImages !=null) ? carImage.imagePath : 'noimage.png' }}" class="d-block w-100" alt="{{ carImage.imagePath }}" />
         </div>
       </div>
 
@@ -29,7 +28,8 @@
 
   </div>
 
-
+  <ng-template #noImageBlock><img src="https://localhost:44308/uploads/noimage.png" class="d-block w-100" alt="..."
+    style="height: 34rem;object-fit: cover;"></ng-template>
 <div class="col-md-4">
   <div *ngFor="let carDetail of carDetails" class="card">
     <div class="card-body">
@@ -50,6 +50,7 @@
 
     <div class="card-body" >
       <button routerLink="/payment/:rental" type="button" class="btn btn-primary">Kirala</button>
+     
     </div>
   </div>
 </div>

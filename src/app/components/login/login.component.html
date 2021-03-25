@@ -1,0 +1,26 @@
+<h2 style="background-color: darkcyan;">GİRİŞ</h2>
+
+<main class="for-signin ">
+  <form  [formGroup]="loginForm">
+    <div class="outer-box">
+      <div class="login-box" >
+      
+        
+      <div class="form-floating">
+        <input formControlName="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">E POSTA</label>
+      </div>
+      <div class="form-floating">
+        <input formControlName="parola" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">PAROLA</label>
+      </div>
+        <button id="btn-login" (click)="login()">Giriş Yap</button>
+        <button id="btn-forgot">Şifremi unuttum!</button>
+      </div>
+    </div>
+  </form>
+</main>
+ 
+
+  
+

@@ -4,8 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/carDetail';
 import { Rental } from 'src/app/models/rental';
-import { CarDetailService } from 'src/app/services/car-detail.service';
-import { PaymentService } from 'src/app/services/payment.service';
+import { RentalService } from 'src/app/services/rental.service';
+
 
 @Component({
   selector: 'app-payment',
@@ -15,7 +15,7 @@ import { PaymentService } from 'src/app/services/payment.service';
 export class PaymentComponent implements OnInit {
 
   constructor( private activatedRoute:ActivatedRoute,
-    private router:Router,private toastr: ToastrService, private paymentService:PaymentService,
+    private router:Router,private toastr: ToastrService, private paymentService:RentalService,
    
     ) { }
   rental:Rental;

@@ -14,8 +14,10 @@ import { ColorListComponent } from './components/color-list/color-list.component
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:CarComponent},
@@ -26,18 +28,19 @@ const routes: Routes = [
   {path:"cars/color/:colorId",component:CarComponent},
   {path:"carDetail/:carId",component:CarDetailComponent},
   {path:"cars/filter/:brandId/:colorId",component:CarComponent},
-  {path:"cars/add", component:CarAddComponent},
+  {path:"cars/add", component:CarAddComponent,canActivate:[LoginGuard]},
   {path:"payment/:rental",component:PaymentComponent},
   {path:"customers",component:CustomerComponent},
   {path:"rentals",component:RentalComponent},
-  {path:"colors/add",component:ColorAddComponent},
-  {path:"brands/add",component:BrandAddComponent},
+  {path:"colors/add",component:ColorAddComponent,canActivate:[LoginGuard]},
+  {path:"brands/add",component:BrandAddComponent,canActivate:[LoginGuard]},
   {path:"brandlist",component:BrandListComponent},
   {path:"carlist",component:CarListComponent},
   {path:"colorlist",component:ColorListComponent},
-  {path:"brands/update/:brandId",component:BrandUpdateComponent},
-  {path:"cars/update/:id",component:CarUpdateComponent},
-  {path:"colors/update/:colorId",component:ColorUpdateComponent}
+  {path:"brands/update/:brandId",component:BrandUpdateComponent,canActivate:[LoginGuard]},
+  {path:"cars/update/:id",component:CarUpdateComponent,canActivate:[LoginGuard]},
+  {path:"colors/update/:colorId",component:ColorUpdateComponent,canActivate:[LoginGuard]},
+  {path:"login",component:LoginComponent}
 
 
 ];

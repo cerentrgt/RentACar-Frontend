@@ -1,5 +1,4 @@
 
-
 export interface Rental{
     carId:number;
     customerId:number;

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { FakeCreditCard } from '../models/fakeCreditCard';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Rental } from '../models/rental';
-import { RentalDetail } from '../models/rentalDetail';
+
 import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
@@ -25,7 +25,7 @@ export class RentalService {
     return this.httpClient.get<ListResponseModel<Rental>>(this.apiUrl+'rentals/detailsbycar?id='+id);
   }
 
-  addRental(rental: RentalDetail, fakeCreditCard: FakeCreditCard): Observable<ResponseModel> {
+  addRental(rental: Rental, fakeCreditCard: FakeCreditCard): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>
     (this.apiUrl + 'rentals/paymentadd',
       {
@@ -45,4 +45,10 @@ export class RentalService {
           }
       });
   }
+
+  pay(rental:Rental,amount:number):Observable<ResponseModel>{
+    let newPath=this.apiUrl+"rentals/paymentadd";
+    rental.returnDate=undefined;
+    return this.httpClient.post<ResponseModel>(newPath,{payment:{amount:amount},rental:rental});
+}
 }

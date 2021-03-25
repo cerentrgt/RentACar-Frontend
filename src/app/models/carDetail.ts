@@ -1,7 +1,8 @@
 
-import { RentalDetail } from "./rentalDetail";
+import { Rental } from "./rental";
 
-export interface CarDetail extends RentalDetail{
+
+export interface CarDetail extends Rental{
     id:number,
     carId:number,
     brandName:string,

@@ -31,8 +31,11 @@ export class LoginComponent implements OnInit {
       this.authService.login(loginModel).subscribe(response=>{
         this.toastrService.info(response.message)
         localStorage.setItem("token",response.data.token)
+       
       },responseError=>{
         this.toastrService.error(responseError.error)
+        
+
       })
     }
   }

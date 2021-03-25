@@ -31,6 +31,7 @@ import { ColorListComponent } from './components/color-list/color-list.component
 import { CarListComponent } from './components/car-list/car-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -59,6 +60,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ColorListComponent,
     CarListComponent,
     LoginComponent,
+    RegisterComponent,
     
     
   ],

@@ -3,6 +3,7 @@ import { FormGroup,FormControl,Validators,FormBuilder } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,8 +12,11 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
+
   constructor(private formBuilder:FormBuilder,
-    private authService:AuthService,private toastrService:ToastrService) { }
+    private authService:AuthService,
+    private toastrService:ToastrService,
+   ) { }
 
   ngOnInit(): void {
     this.createLoginForm();
@@ -39,5 +43,9 @@ export class LoginComponent implements OnInit {
       })
     }
   }
+
+  // logOut(){
+  //   localStorage.removeItem("token")
+  // }
 
 }

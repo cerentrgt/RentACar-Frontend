@@ -1,4 +1,7 @@
+import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
+
+
 
 
 @Component({
@@ -8,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NaviComponent implements OnInit {
 
-  constructor(){}
+  loginModel:any;
+  constructor(
+   ){}
+
 
   ngOnInit(): void {
   }
+  
+
 
 }

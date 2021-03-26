@@ -20,7 +20,7 @@ export class AuthService {
   register(registerModel:RegisterModel){
     return this.httpClient.post<ItemResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
   }
-
+ 
   isAuthenticated(){
     if(localStorage.getItem("token")){
       return true;

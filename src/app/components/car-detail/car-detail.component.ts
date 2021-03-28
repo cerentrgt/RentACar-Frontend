@@ -12,7 +12,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarDetailComponent implements OnInit {
 
-  carImages:CarImage[]=[]
+  carImages:CarImage[]=[];
   carDetails:CarDetail[]=[];
   constructor(private carDetailService:CarDetailService,
     private activatedRoute:ActivatedRoute,

@@ -8,5 +8,6 @@ export interface Car {
     colorName:string,
     descriptions:string,
     dailyPrice:number,
-    modelYears:number
+    modelYears:number,
+    minFindeksScore:number;
 }

@@ -1,4 +1,5 @@
 export interface Customer{
     userId:number,
-    companyName:string
+    companyName:string,
+    findeksScore:number;
 }

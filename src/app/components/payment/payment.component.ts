@@ -15,14 +15,19 @@ import { RentalService } from 'src/app/services/rental.service';
 export class PaymentComponent implements OnInit {
 
   constructor( private activatedRoute:ActivatedRoute,
-    private router:Router,private toastr: ToastrService, private paymentService:RentalService,
-   
-    ) { }
+    private router:Router,
+    private toastr: ToastrService,
+    private rentalService:RentalService,
+  ) { }
+
+ 
   rental:Rental;
+  rentals:Rental[]=[]
   car:Car;
   carDetails:CarDetail[]=[];
   amountOfPayment:number = 0;
   ngOnInit(): void {
+
     this.activatedRoute.params.subscribe(params=>{
       if(params["rental"&& "car"]){
         this.rental = JSON.parse(params['rental']);
@@ -36,17 +41,18 @@ export class PaymentComponent implements OnInit {
 
 
   getRental(){
-    console.log(this.car)
-    console.log(this.rental);
+    this.rentalService.getRentals().subscribe(response=>{
+      this.rentals=response.data
+    })
   }
 
+
   pay(){
-    this.paymentService.pay(this.rental,this.amountOfPayment).subscribe(response => {
+    this.rentalService.pay(this.rental,this.amountOfPayment).subscribe(response => {
       this.router.navigate(['/carDetails']);
       this.toastr.success(response.message.toString(), "İşlem Başarılı");
     })
   }
-
-  
+ 
 
 }

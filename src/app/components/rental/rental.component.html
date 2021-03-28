@@ -1,4 +1,4 @@
-<table  class="table">
+<!-- <table  class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">Customer Id</th>
@@ -15,4 +15,30 @@
         <td>{{rental.returnDate}}</td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+
+  <div  class="content d-flex justify-content-center">
+    <div class="row justify-content-md-center">
+        <div class="col-md-12">
+            <div class="p-fluid p-formgrid p-grid">
+                <form>
+                    <div class="mb-3">
+                        <label for="daily-price" class="form-label">Günlük Ücret:</label>
+                        <input [value]="carDetail.dailyPrice | currency" disabled="disabled" type="text" class="form-control" id="daily-price" >
+                    </div>
+                    <div class="mb-3" style="width: 12rem;">
+                        <label for="rent-date" class="form-label">Başlangıç:</label>
+                        <input  min="{{minDate}}"  [(ngModel)]="startDate" name="startDate" type="date" class="form-control" id="rent-start-date" placeholder="Bir gün seçiniz.">
+                    </div>
+                    <div class="mb-3" style="width: 12rem;">
+                        <label for="return-date" class="form-label">Bitiş:</label>
+                        <input [disabled]='!startDate' min="{{startDate}}" max="{{maxDate}}" [(ngModel)]="endDate" name="endDate"  type="date" class="form-control" id="rent-end-date" placeholder="Bir gün seçiniz.">
+                    </div>
+                </form>
+            </div>
+            <div class="card">
+              <button [disabled]="!(startDate && endDate)"  type="button" class="btn btn-primary" data-bs-dismiss="modal" routerLink="/payment/:rentals">Kirala</button>
+            </div>
+        </div>
+    </div>
+  </div>
